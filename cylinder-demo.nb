@@ -1,0 +1,512 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21132,        504]
+NotebookOptionsPosition[     20366,        484]
+NotebookOutlinePosition[     20764,        500]
+CellTagsIndexPosition[     20721,        497]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "Constants", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"LineThickness", "=", "0.008"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"RotationConstant", "=", "4"}], ";"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ballsize", "=", "0.1"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.800922897816897*^9, 3.800922904632019*^9}, {
+   3.8012515012765217`*^9, 3.801251501607654*^9}, {3.801430395633206*^9, 
+   3.801430402293105*^9}, 3.801430441821144*^9, {3.8014479795463867`*^9, 
+   3.801447986140209*^9}, {3.801448048391881*^9, 3.801448144105315*^9}, {
+   3.801484512592506*^9, 3.801484520233425*^9}, {3.801487491749548*^9, 
+   3.801487493781723*^9}, {3.8018350573142605`*^9, 3.8018350688038654`*^9}, {
+   3.8018382290032525`*^9, 3.8018382291524377`*^9}, {3.8018392203366795`*^9, 
+   3.801839228710104*^9}},ExpressionUUID->"abdb98ac-3d62-46e6-9f7b-\
+661656ab683c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Ball", " ", "path"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"r", "[", "\[Theta]_", "]"}], "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Cos", "[", 
+       RowBox[{"\[Theta]", "-", 
+        RowBox[{"\[Pi]", "/", "4"}]}], "]"}], ",", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"\[Theta]", "-", 
+        RowBox[{"\[Pi]", "/", "4"}]}], "]"}]}], "}"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.8018378981449194`*^9, 3.801837944308772*^9}, {
+  3.8018380797553115`*^9, 3.801838082796913*^9}, {3.801838173986245*^9, 
+  3.801838197799412*^9}, {3.801839236164941*^9, 
+  3.8018392431060643`*^9}},ExpressionUUID->"4baec503-2520-4984-8fc5-\
+9faebd3151f0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ParametricPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"t", ",", "t"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", 
+         RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Black"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+       RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{"First", " ", "rotating", " ", "circle"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"White", ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"GeometricTransformation", "[", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{"{", 
+            RowBox[{"0.15", ",", "0.15"}], "}"}], "]"}], ",", 
+          RowBox[{"RotationTransform", "[", 
+           RowBox[{"\[Theta]", ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "]"}]}], "}"}], "]"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Following", " ", "Graphics", " ", "elements", " ", "create", " ", 
+       "ball"}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Darker", "[", 
+         RowBox[{"Red", ",", "0.4"}], "]"}], ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+            RowBox[{"2", "*", "ballsize"}]}], "]"}], ",", 
+          RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"0.75", "*", "ballsize"}], ",", 
+              RowBox[{"2", "*", "ballsize"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Darker", "[", 
+         RowBox[{"Red", ",", "0.2"}], "]"}], ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"1.5", "*", "ballsize"}], ",", 
+              RowBox[{"2", "*", "ballsize"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"2", "*", "ballsize"}], ",", 
+              RowBox[{"0.1", "*", "ballsize"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"r", "[", "\[Theta]", "]"}], "+", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", 
+                RowBox[{
+                 RowBox[{"-", "2"}], "*", "ballsize"}]}], "}"}]}], ",", 
+             RowBox[{
+              RowBox[{"r", "[", "\[Theta]", "]"}], "+", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", 
+                RowBox[{"2", "*", "ballsize"}]}], "}"}]}]}], "}"}], "]"}], 
+          ",", 
+          RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Second", " ", "rotating", " ", "circle"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"White", ",", 
+        RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+        RowBox[{"GeometricTransformation", "[", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.15"}], ",", 
+             RowBox[{"-", "0.15"}]}], "}"}], "]"}], ",", 
+          RowBox[{"RotationTransform", "[", 
+           RowBox[{"\[Theta]", ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "]"}]}], "}"}], 
+      "]"}]}], "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"\[Theta]", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.8018364350764685`*^9, 3.8018364509039135`*^9}, {
+   3.801836565586542*^9, 3.8018365958338823`*^9}, {3.80183667361497*^9, 
+   3.8018368142196913`*^9}, {3.80183684601585*^9, 3.801837006464323*^9}, {
+   3.8018370455281973`*^9, 3.8018370670300927`*^9}, {3.801837112453332*^9, 
+   3.8018371346528044`*^9}, {3.8018371841942034`*^9, 3.8018373671358995`*^9}, 
+   3.8018376721198363`*^9, {3.801837808018465*^9, 3.801837867367195*^9}, {
+   3.801837961309252*^9, 3.801838067489684*^9}, {3.801838252133972*^9, 
+   3.8018382834467525`*^9}, {3.8018392964374037`*^9, 
+   3.8018393074777927`*^9}, {3.801839357564528*^9, 
+   3.801839372433298*^9}},ExpressionUUID->"0f0b0e60-d249-4c8d-82a9-\
+c7e63a3cabc9"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Theta]$$ = 3.9448779917119823`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Theta]$$], 0, 2 Pi}}, Typeset`size$$ = {
+    360., {177., 183.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Theta]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ParametricPlot[{$CellContext`t, $CellContext`t}, {$CellContext`t, \
+-1.5, 1.5}, PlotStyle -> Black, Axes -> None, Background -> Black], 
+        Graphics[{White, 
+          Thickness[$CellContext`LineThickness], 
+          GeometricTransformation[
+           Circle[{0.15, 0.15}], 
+           RotationTransform[$CellContext`\[Theta]$$, {0, 0}]]}], 
+        Graphics[{
+          Darker[Red, 0.4], 
+          Thickness[$CellContext`LineThickness], 
+          Rotate[
+           Circle[
+            $CellContext`r[$CellContext`\[Theta]$$], 
+            2 $CellContext`ballsize], $CellContext`RotationConstant \
+$CellContext`\[Theta]$$]}], 
+        Graphics[{Red, 
+          Thickness[$CellContext`LineThickness], 
+          Rotate[
+           Circle[
+            $CellContext`r[$CellContext`\[Theta]$$], {
+            0.75 $CellContext`ballsize, 
+             2 $CellContext`ballsize}], $CellContext`RotationConstant \
+$CellContext`\[Theta]$$]}], 
+        Graphics[{
+          Darker[Red, 0.2], 
+          Thickness[$CellContext`LineThickness], 
+          Rotate[
+           Circle[
+            $CellContext`r[$CellContext`\[Theta]$$], {
+            1.5 $CellContext`ballsize, 
+             2 $CellContext`ballsize}], $CellContext`RotationConstant \
+$CellContext`\[Theta]$$]}], 
+        Graphics[{Red, 
+          Thickness[$CellContext`LineThickness], 
+          Rotate[
+           Circle[
+            $CellContext`r[$CellContext`\[Theta]$$], {
+            2 $CellContext`ballsize, 
+             0.1 $CellContext`ballsize}], $CellContext`RotationConstant \
+$CellContext`\[Theta]$$]}], 
+        Graphics[{Red, 
+          Thickness[$CellContext`LineThickness], 
+          Rotate[
+           
+           Line[{$CellContext`r[$CellContext`\[Theta]$$] + {
+              0, (-2) $CellContext`ballsize}, $CellContext`r[$CellContext`\
+\[Theta]$$] + {
+              0, 2 $CellContext`ballsize}}], $CellContext`RotationConstant \
+$CellContext`\[Theta]$$]}], 
+        Graphics[{White, 
+          Thickness[$CellContext`LineThickness], 
+          GeometricTransformation[
+           Circle[{-0.15, -0.15}], 
+           RotationTransform[$CellContext`\[Theta]$$, {0, 0}]]}]], 
+      "Specifications" :> {{$CellContext`\[Theta]$$, 0, 2 Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {237., 243.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8018368933568053`*^9, 3.8018369568967876`*^9}, {
+   3.801836992206524*^9, 3.801837006707631*^9}, {3.8018370463918343`*^9, 
+   3.8018370674214296`*^9}, {3.8018371131485047`*^9, 
+   3.8018371349207783`*^9}, {3.8018371860587893`*^9, 3.801837323611342*^9}, {
+   3.801837362654189*^9, 3.8018373675081964`*^9}, 3.801837600400096*^9, 
+   3.801837923367421*^9, {3.801837967128468*^9, 3.8018380679939356`*^9}, 
+   3.8018382095768137`*^9, {3.8018382584517264`*^9, 3.8018382904567184`*^9}},
+ CellLabel->
+  "Out[119]=",ExpressionUUID->"25592eba-305d-4cb5-878d-9b0efa63929a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Pre", "-", 
+    RowBox[{"render", " ", "and", " ", "export", " ", "video"}]}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"slides", "=", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Show", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"ParametricPlot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"t", ",", "t"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", 
+             RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", "Black"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+           RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"White", ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"GeometricTransformation", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.15", ",", "0.15"}], "}"}], "]"}], ",", 
+              RowBox[{"RotationTransform", "[", 
+               RowBox[{"\[Theta]", ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "]"}]}], "}"}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", 
+             RowBox[{"Red", ",", "0.4"}], "]"}], ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{
+                RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+                RowBox[{"2", "*", "ballsize"}]}], "]"}], ",", 
+              RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}],
+           "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{
+                RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"0.75", "*", "ballsize"}], ",", 
+                  RowBox[{"2", "*", "ballsize"}]}], "}"}]}], "]"}], ",", 
+              RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}],
+           "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", 
+             RowBox[{"Red", ",", "0.2"}], "]"}], ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{
+                RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"1.5", "*", "ballsize"}], ",", 
+                  RowBox[{"2", "*", "ballsize"}]}], "}"}]}], "]"}], ",", 
+              RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}],
+           "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{
+                RowBox[{"r", "[", "\[Theta]", "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"2", "*", "ballsize"}], ",", 
+                  RowBox[{"0.1", "*", "ballsize"}]}], "}"}]}], "]"}], ",", 
+              RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}],
+           "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"r", "[", "\[Theta]", "]"}], "+", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], "*", "ballsize"}]}], "}"}]}], ",", 
+                 RowBox[{
+                  RowBox[{"r", "[", "\[Theta]", "]"}], "+", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", "*", "ballsize"}]}], "}"}]}]}], "}"}], "]"}],
+               ",", 
+              RowBox[{"RotationConstant", "*", "\[Theta]"}]}], "]"}]}], "}"}],
+           "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"White", ",", 
+            RowBox[{"Thickness", "[", "LineThickness", "]"}], ",", 
+            RowBox[{"GeometricTransformation", "[", 
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "0.15"}], ",", 
+                 RowBox[{"-", "0.15"}]}], "}"}], "]"}], ",", 
+              RowBox[{"RotationTransform", "[", 
+               RowBox[{"\[Theta]", ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "]"}]}], "}"}], 
+          "]"}]}], "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\[Theta]", ",", "0", ",", 
+         RowBox[{"2", "\[Pi]"}], ",", 
+         RowBox[{"\[Pi]", "/", "50"}]}], "}"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+     "\"\<C://Users/Hong/Documents/demo_cylinder.avi\>\"", ",", "slides", ",", 
+      RowBox[{"ImageResolution", "\[Rule]", "1200"}], ",", 
+      RowBox[{"Antialiasing", "\[Rule]", "True"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.801403915521421*^9, 3.801403920865815*^9}, {
+   3.801404034673774*^9, 3.801404065197678*^9}, {3.801404116414036*^9, 
+   3.801404121764937*^9}, {3.80140417491078*^9, 3.801404177706648*^9}, 
+   3.801405083447824*^9, 3.801405815571006*^9, 3.801406768123294*^9, {
+   3.8014076736791077`*^9, 3.8014076819207172`*^9}, {3.801408278092765*^9, 
+   3.801408282518716*^9}, {3.801408549653304*^9, 3.80140856128126*^9}, {
+   3.801408673156466*^9, 3.801408673645297*^9}, {3.801408811188995*^9, 
+   3.801408833998671*^9}, {3.801420748855431*^9, 3.80142075379706*^9}, {
+   3.801422228725325*^9, 3.801422301845448*^9}, {3.801422341560471*^9, 
+   3.801422341695959*^9}, {3.801423301893043*^9, 3.801423308645398*^9}, {
+   3.801425369943712*^9, 3.8014253769657516`*^9}, {3.801432471515585*^9, 
+   3.801432475413274*^9}, {3.801433037427908*^9, 3.801433038074789*^9}, {
+   3.801433165040345*^9, 3.8014331661706963`*^9}, {3.801484473517659*^9, 
+   3.801484478661343*^9}, {3.8018312678237605`*^9, 3.801831278536191*^9}, {
+   3.8018383364244328`*^9, 3.8018383403896914`*^9}, {3.801838374798683*^9, 
+   3.801838375784422*^9}, {3.801838429124162*^9, 3.801838429244376*^9}, {
+   3.801839316625373*^9, 
+   3.801839351395672*^9}},ExpressionUUID->"4db43281-962c-4e78-b195-\
+85f79b57dc8b"]
+},
+WindowSize->{1111, 761},
+WindowMargins->{{29, Automatic}, {Automatic, 37}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 9, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"57497d9c-3df4-4c13-9730-c2e1b448a652"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 957, 18, 86, "Input",ExpressionUUID->"abdb98ac-3d62-46e6-9f7b-661656ab683c"],
+Cell[1518, 40, 743, 19, 48, "Input",ExpressionUUID->"4baec503-2520-4984-8fc5-9faebd3151f0"],
+Cell[CellGroupData[{
+Cell[2286, 63, 6292, 153, 314, "Input",ExpressionUUID->"0f0b0e60-d249-4c8d-82a9-c7e63a3cabc9"],
+Cell[8581, 218, 4208, 93, 499, "Output",ExpressionUUID->"25592eba-305d-4cb5-878d-9b0efa63929a"]
+}, Open  ]],
+Cell[12804, 314, 7558, 168, 314, "Input",ExpressionUUID->"4db43281-962c-4e78-b195-85f79b57dc8b"]
+}
+]
+*)
+
